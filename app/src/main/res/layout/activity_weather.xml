@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.drawerlayout.widget.DrawerLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/drawableLayout"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/swipeRefresh"
+
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+        <ScrollView
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/weatcherLayout"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:overScrollMode="never"
+            android:visibility="invisible"
+
+            android:scrollbars="none"
+            tools:context=".UI.weather.WeatherActivity">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+
+                android:layout_height="wrap_content">
+
+                <include layout="@layout/now"/>
+
+                <include layout="@layout/forecast"/>
+
+                <include layout="@layout/life_index"/>
+
+            </LinearLayout>
+        </ScrollView>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:focusable="true"
+       android:background="@color/colorPrimary"
+        android:layout_gravity="start">
+        <fragment
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="25dp"
+            android:id="@+id/placeFragment"
+            android:name="com.sunnyweather.android.UI.place.PlaceFragment"
+            />
+    </FrameLayout>
+</androidx.drawerlayout.widget.DrawerLayout>
